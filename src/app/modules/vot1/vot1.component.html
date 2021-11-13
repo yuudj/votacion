@@ -1,0 +1,43 @@
+<div class="keypad">
+  <mat-form-field appearance="fill" class="display">
+    <mat-label>Input</mat-label>
+    <input
+      type="number"
+      matInput
+      [(ngModel)]="manualInput"
+      (keydown)="onKeydown($event)"
+    />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    *ngFor="let item of [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]; let i = index"
+    (click)="addNumber(item)"
+  >
+    {{ item }}
+  </button>
+
+  <button mat-raised-button color="primary" class="enter" (click)="save()">
+    GUARDAR
+  </button>
+</div>
+<span>{{ total() }}</span>
+<mat-list>
+  <mat-list-item
+    *ngFor="let item of sobres; let i = index"
+    [attr.data-index]="i"
+  >
+    <i>{{ i }}-----</i>
+    <b>{{ item }}</b>
+    <mat-action-list>
+      <button
+        mat-icon-button
+        aria-label="delete item"
+        (click)="removeNumber(i)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-action-list>
+  </mat-list-item>
+</mat-list>

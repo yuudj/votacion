@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+
+  .keypad {
+    display: grid;
+    grid-template: 1.5fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    .enter {
+      grid-column: span 2 / auto;
+    }
+    .display {
+      grid-column: auto / span 3;
+    }
+  }
+}
